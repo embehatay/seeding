@@ -33,9 +33,9 @@
                         </tr>
                         </thead>
                         <tbody id="pannel">
-                        @if($setting)
+                        @if ($setting)
                             <?php $stt = 0; ?>
-                            @foreach($setting as $item)
+                            @foreach ($setting as $item)
                                 <?php $stt += 1; ?>
                                 <tr>
                                     <td>{!! $stt !!}</td>

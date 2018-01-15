@@ -31,18 +31,18 @@
                         </tr>
                         </thead>
                         <tbody id="pannel">
-                        @if($account)
+                        @if ($account)
                             <?php $stt = 0; ?>
-                            @foreach($account as $item)
+                            @foreach ($account as $item)
                                 <?php $stt += 1; ?>
                                 <tr>
                                     <td>{!! $stt !!}</td>
                                     <td>{!! $item->uid !!}</td>
                                     <td>{!! $item->name !!}</td>
                                     <td>
-                                        @if($item->type == 0)
+                                        @if ($item->type == 0)
                                             {!! 'User' !!}
-                                        @elseif($item->type == 1)
+                                        @elseif ($item->type == 1)
                                             {!! 'Admin' !!}
                                         @else
                                             {!! 'Root' !!}
@@ -58,11 +58,11 @@
                                         {!! $item->info !!}
                                     </td>
                                     <?php $acc = \Illuminate\Support\Facades\Auth::user(); ?>
-                                    @if($acc->type === 2)
+                                    @if ($acc->type === 2)
                                         <td><a class="btn btn-warning btn-xs btn-block" href="{!! URL::route('admin.account.getEdit', $item->uid) !!}" role="button" title="Edit"><span class="fa fa-edit"></span></a></td>
                                         <td><a class="btn btn-danger btn-xs btn-block" href="{!! URL::route('admin.account.getDelete', $item->uid) !!}" role="button" title="Destroy"><span class="fa fa-remove"></span></a></td>
                                     @else
-                                        @if($acc->uid == $item->uid)
+                                        @if ($acc->uid == $item->uid)
                                             <td><a class="btn btn-warning btn-xs btn-block" href="{!! URL::route('admin.account.getEdit', $item->uid) !!}" role="button" title="Edit"><span class="fa fa-edit"></span></a></td>
                                             <td></td>
                                         @else
@@ -78,7 +78,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div id="pagination" class="box-footer">
-                    @if($account)
+                    @if ($account)
                         {{ $account->links() }}
                     @endif
                 </div>

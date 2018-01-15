@@ -38,9 +38,9 @@
                         </tr>
                         </thead>
                         <tbody id="pannel">
-                        @if($post)
+                        @if ($post)
                             <?php $stt = 0; ?>
-                            @foreach($post as $item)
+                            @foreach ($post as $item)
                                 <?php $stt += 1; ?>
                                 <tr>
                                     <td>{!! $stt !!}</td>
@@ -63,7 +63,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div id="pagination" class="box-footer">
-                    @if($post)
+                    @if ($post)
                         {{ $post->links() }}
                     @endif
                 </div>

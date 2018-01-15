@@ -39,9 +39,9 @@
                         </tr>
                         </thead>
                         <tbody id="pannel">
-                        @if($comment)
+                        @if ($comment)
                             <?php $stt = 0; ?>
-                            @foreach($comment as $item)
+                            @foreach ($comment as $item)
                                 <?php $stt += 1; ?>
                                 <tr>
                                     <td>{!! $stt !!}</td>
@@ -64,7 +64,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div id="pagination" class="box-footer">
-                    @if($comment)
+                    @if ($comment)
                         {{ $comment->links() }}
                     @endif
                 </div>
