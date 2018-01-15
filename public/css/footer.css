@@ -1,0 +1,103 @@
+.footer-btm {
+    /*background-color: #2E3236;*/
+    padding: 0px 0px;
+    text-align: center;
+}
+.footer-btm .row {
+    margin: 0 auto;
+}
+.footer-btm .columns {
+    background-color: #293039;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.twelve, .row .twelve {
+    width: 100%;
+}
+.column, .columns {
+    float: left;
+    min-height: 1px;
+    padding: 0 10px;
+    position: relative;
+}
+.copyright {
+    min-width: 350px;
+    color: #75787B;
+    font: 13px "pt sans","Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
+        line-height: normal;
+    line-height: 74px;
+    float: left;
+    margin-left: 20px;
+}
+
+ul.social-foot {
+    float: right;
+    margin-right: 20px;
+}
+
+ul, li, ol {
+    color: #747474;
+    list-style: none outside none;
+}
+
+.social-foot li {
+    list-style: none;
+    display: inline-block;
+}
+
+.footer-btm a {
+    color: #bfbfbf !important;
+}
+
+a.social-icon {
+    list-style: none;
+    background-color: #333c45;
+    margin: 0px 1px;
+        margin-top: 0px;
+    margin-top: 20px;
+    height: 35px;
+    float: left;
+    width: 35px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.02);
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.02);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.02);
+}
+a.facebook:hover {
+    background-color: #3d5b99;
+}
+a.instagram:hover {
+    background-color: #DB3172;
+}
+a.skype:hover {
+    background-color: #0773A6;
+}
+
+@media only screen and (max-width:400px) {
+    footer .copyright {
+        min-width: unset;
+        margin-left: unset;
+        float: unset;
+    }
+
+    footer ul.social-foot {
+        float: unset;
+        margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width:317px) {
+    footer .copyright {
+        margin-top: 20px;
+        line-height: 20px;
+    }
+}
