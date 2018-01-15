@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AccountRequest;
 use App\Model\Account;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,6 +11,7 @@ class AccountController extends Controller
 {
     public function getIndex()
     {
+        $this->authorize('show-account');
         $account = Account::paginate(10);
         $total = Account::count();
         return view('admin.account.index', compact('account', 'total'));
@@ -23,7 +23,6 @@ class AccountController extends Controller
     }
 
     public function postAdd(AccountRequest $accountRequest)
-//    public function postAdd(Request $productRequest)
     {
         if ($accountRequest->phone) {
             $this->validate($accountRequest, [
