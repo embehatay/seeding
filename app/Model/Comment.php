@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Comment extends General
 {
     protected $table = 'comment';

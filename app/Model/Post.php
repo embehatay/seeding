@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Post extends General
 {
     protected $table = 'post';
