@@ -25,7 +25,7 @@ class AccountController extends Controller
     public function postAdd(AccountRequest $accountRequest)
 //    public function postAdd(Request $productRequest)
     {
-        if($accountRequest->phone) {
+        if ($accountRequest->phone) {
             $this->validate($accountRequest, [
                'phone' => array('regex:/^0[0-9]{9}[0-9]?$/')
             ], [
@@ -33,7 +33,6 @@ class AccountController extends Controller
             ]);
         }
         $account = new Account();
-
         $account->uid = time();
         $account->name = removeExtraSpaces($accountRequest->name);
         $account->user = trim($accountRequest->user);
@@ -48,7 +47,7 @@ class AccountController extends Controller
 
     public function getEdit($id)
     {
-        if(Auth::user()->uid == $id) {
+        if (Auth::user()->uid == $id) {
             $this->authorize('self-edit');
         } else {
             $this->authorize('edit-account');
@@ -60,11 +59,10 @@ class AccountController extends Controller
     public function postEdit($id)
     {
         $account = Account::findOrFail($id);
-//        print_data(bcrypt(request()->pass));
-        if(!Hash::check(request()->pass, $account->pass)) {
+        if (!Hash::check(request()->pass, $account->pass)) {
             return redirect()->route('admin.account.getEdit', $id)->with(['flash_message' => 'Sai mật khẩu', 'flash_level' => 'danger']);
         }
-        if($account->user !== request()->user) {
+        if ($account->user !== request()->user) {
             $this->validate(request(), [
                 'user' => 'alpha_num|unique:account,user',
             ], [
@@ -80,7 +78,7 @@ class AccountController extends Controller
             'pass.min' => 'Mật khẩu tối thiểu 6 kí tự',
         ]);
 
-        if(request()->phone) {
+        if (request()->phone) {
             $this->validate(request(), [
                 'phone' => array('regex:/^0[0-9]{9}[0-9]?$/')
             ], [

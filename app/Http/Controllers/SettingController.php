@@ -8,19 +8,22 @@ use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    public function getIndex() {
+    public function getIndex()
+    {
         $setting = Setting::get();
         $total = Setting::count();
         return view('admin.setting.index', compact('setting', 'total'));
     }
 
-    public function getEdit($id) {
+    public function getEdit($id)
+    {
         $setting = Setting::findOrFail($id);
         return view('admin.setting.edit', compact('setting'));
     }
 
-    public function postEdit($id, SettingRequest $settingRequest) {
-        if(request()->percent_like) {
+    public function postEdit($id, SettingRequest $settingRequest)
+    {
+        if (request()->percent_like) {
             $this->validate($settingRequest, [
                 'percent_like' => 'integer|min:0',
             ], [

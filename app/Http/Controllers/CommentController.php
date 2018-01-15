@@ -16,16 +16,16 @@ class CommentController extends Controller
         $postid = request()->post_id;
         $user_name = request()->user_name;
         $cond = array();
-        if(!empty($user_name)) {
+        if (!empty($user_name)) {
             $cond['like'][] = array('name', $user_name);
             $uids = Account::getItemByCondition($cond, 'uid')->get()->toArray();
             $cond['like'] = array();
             $cond['where_in'] = array('suid', $uids);
         }
-        if(!empty($postid)) {
+        if (!empty($postid)) {
             $cond['like'][] = array('postid', $postid);
         }
-        if($cond) {
+        if ($cond) {
             $comment = Comment::getItemByCondition($cond, '*')->paginate(10);
             $total = count(Comment::getItemByCondition($cond, '*')->get());
             $comment->appends(['post_id' => $postid, 'user_name' => $user_name]);
