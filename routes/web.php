@@ -34,12 +34,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::post('edit/{id}', ['as' => 'admin.setting.postEdit', 'uses' => 'SettingController@postEdit']);
     });
 
-    Route::group(['prefix' => 'account'], function() {
+    Route::group(['prefix' => 'account'], function () {
         Route::get('index', ['as' => 'admin.account.getIndex', 'uses' => 'AccountController@getIndex']);
         Route::get('add', ['as' => 'admin.account.getAdd', 'uses' => 'AccountController@getAdd']);
         Route::post('add', ['as' => 'admin.account.postAdd', 'uses' => 'AccountController@postAdd']);
         Route::get('edit/{id}', ['as' => 'admin.account.getEdit', 'uses' => 'AccountController@getEdit']);
         Route::post('edit/{id}', ['as' => 'admin.account.postEdit', 'uses' => 'AccountController@postEdit']);
         Route::get('delete/{id}', ['as' => 'admin.account.getDelete', 'uses' => 'AccountController@getDelete']);
+    });
+
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', ['as' => 'admin.user.index', 'uses' => 'UserController@index']);
+        Route::get('create', ['as' => 'admin.user.create', 'uses' => 'UserController@create']);
+        Route::post('store', ['as' => 'admin.user.store', 'uses' => 'UserController@store']);
+        Route::get('edit/{id}', ['as' => 'admin.user.edit', 'uses' => 'UserController@edit']);
+        Route::post('update/{id}', ['as' => 'admin.user.update', 'uses' => 'UserController@update']);
+        Route::get('destroy/{id}', ['as' => 'admin.user.destroy', 'uses' => 'UserController@destroy']);
     });
 });

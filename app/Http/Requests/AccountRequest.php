@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 
 class AccountRequest extends FormRequest
 {
@@ -23,10 +24,12 @@ class AccountRequest extends FormRequest
      */
     public function rules()
     {
+        $uid = $this->route('id');
         return [
             'name' => 'alpha_spaces',
-            'user' => 'alpha_num|unique:account,user',
-            'pass' => 'min:6|confirmed'
+            'user' => 'alpha_num|unique:account,user,' . $uid . ',uid',
+            'pass' => 'min:6|confirmed',
+            'phone' => array('regex:/^(0[0-9]{9}[0-9]?)?$/'),
         ];
     }
 
@@ -38,6 +41,7 @@ class AccountRequest extends FormRequest
             'user.unique' => 'Username đã tồn tại',
             'pass.min' => 'Mật khẩu tối thiểu 6 kí tự',
             'pass.confirmed' => 'Nhập lại mật khẩu bị sai',
+            'phone.regex' => 'Số điện thoại không hợp lệ (chỉ bao gồm 10 hoặc 11 số và bắt đầu bằng số 0)'
         ];
     }
 }

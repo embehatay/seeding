@@ -757,7 +757,7 @@ class Request
      */
     public function hasPreviousSession()
     {
-        // the check for $this->session avoids malicious users trying to fake a session cookie with proper name
+        // the check for $this->session avoids malicious user trying to fake a session cookie with proper name
         return $this->hasSession() && $this->cookies->has($this->session->getName());
     }
 

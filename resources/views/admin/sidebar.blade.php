@@ -8,7 +8,19 @@
             </li>
 
             <li class="treeview">
-                <a href="{{ route('admin.account.getIndex') }}"><i class="fa fa-fw fa-user"></i> <span>Users</span>
+                <a href="#"><i class="fa fa-fw fa-user"></i> <span>Users</span>
+                    <span class="pull-right-container">
+            <span class="fa fa-angle-left pull-right"></span>
+        </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><span class="fa fa-fw fa-circle-o text-blue"></span> <span>List All</span></a></li>
+                    <li><a href="#"><span class="fa fa-fw fa-circle-o text-yellow"></span> <span>List New</span></a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ route('admin.account.getIndex') }}"><i class="fa fa-fw fa-user"></i> <span>Accounts</span>
                     <span class="pull-right-container">
             <span class="fa fa-angle-left pull-right"></span>
         </span>
@@ -18,6 +30,7 @@
                     <li><a href="#"><span class="fa fa-fw fa-circle-o text-yellow"></span> <span>List New</span></a></li>
                 </ul>
             </li>
+
             <li class="treeview">
                 <a href="{{ route('admin.comment.getIndex') }}"><i class="fa fa-fw fa-comment"></i> <span>Comments</span>
                     <span class="pull-right-container">
@@ -42,6 +55,7 @@
                     <li><a href="#"></span> <span>Create</span></a></li>
                 </ul>
             </li>
+            <li><a href="{{ route('admin.setting.getIndex') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

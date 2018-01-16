@@ -461,7 +461,7 @@ desired effect
 
         var user = (function () {
 
-            var url = 'http://localhost:8888/anhltblog/public/admin/users'
+            var url = 'http://localhost:8888/anhltblog/public/admin/user'
             var swalTitle = 'Really destroy user ?'
             var confirmButtonText = 'Yes'
             var cancelButtonText = 'No'

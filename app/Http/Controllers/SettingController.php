@@ -30,20 +30,9 @@ class SettingController extends Controller
                 'percent_like.min' => 'percent_like phải lớn hơn 0',
             ]);
         }
-
+        $data = $settingRequest->all();
         $setting = Setting::findOrFail($id);
-        $setting->seeding = $settingRequest->seeding;
-        $setting->collect_post = $settingRequest->collect_post;
-        $setting->max_comment_1time_sacc = $settingRequest->max_comment_1time_sacc;
-        $setting->distance_sama = $settingRequest->distance_sama;
-        $setting->max_cm_1post = $settingRequest->max_cm_1post;
-        $setting->delay_post_comment = $settingRequest->delay_post_comment;
-        $setting->on_seed = $settingRequest->on_seed;
-        $setting->on_collect = $settingRequest->on_collect;
-        $setting->addfriend = $settingRequest->addfriend;
-        $setting->timer_like = $settingRequest->timer_like;
-        $setting->percent_like = $settingRequest->percent_like;
-        $setting->save();
+        $setting->update($data);
         return redirect()->route('admin.setting.getIndex')->with(['flash_message' => 'Cập nhật thành công', 'flash_level' => 'success']);
     }
 }

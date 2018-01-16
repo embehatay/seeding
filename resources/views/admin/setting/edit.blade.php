@@ -225,7 +225,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group ">
-                                <input type="text" class="form-control" id="title" name="percent_like" value="{!! $setting->percent_like !!}" required="">
+                                <input type="text" class="form-control" id="title" name="percent_like" value="{!! $setting->percent_like !!}">
 
                             </div>
 

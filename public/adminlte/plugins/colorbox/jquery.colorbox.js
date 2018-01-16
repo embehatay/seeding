@@ -572,7 +572,7 @@
 				} else {
 					// For jQuery 1.3.x -> 1.6.x
 					// This code is never reached in jQuery 1.9, so do not contact me about 'live' being removed.
-					// This is not here for jQuery 1.9, it's here for legacy users.
+					// This is not here for jQuery 1.9, it's here for legacy user.
 					$('.'+boxElement).live('click.'+prefix, clickHandler);
 				}
 			}

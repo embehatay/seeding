@@ -12,7 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="box-header with-border">
+                <div class="box-header with-border text-right">
+                    <span>Tổng số: <strong>{!! $total !!}</strong></span>
                     <div id="spinner" class="text-center"></div>
                 </div>
                 <div class="box-body table-responsive">
@@ -57,19 +58,8 @@
                                     <td>
                                         {!! $item->info !!}
                                     </td>
-                                    <?php $acc = \Illuminate\Support\Facades\Auth::user(); ?>
-                                    @if ($acc->type === 2)
-                                        <td><a class="btn btn-warning btn-xs btn-block" href="{!! URL::route('admin.account.getEdit', $item->uid) !!}" role="button" title="Edit"><span class="fa fa-edit"></span></a></td>
-                                        <td><a class="btn btn-danger btn-xs btn-block" href="{!! URL::route('admin.account.getDelete', $item->uid) !!}" role="button" title="Destroy"><span class="fa fa-remove"></span></a></td>
-                                    @else
-                                        @if ($acc->uid == $item->uid)
-                                            <td><a class="btn btn-warning btn-xs btn-block" href="{!! URL::route('admin.account.getEdit', $item->uid) !!}" role="button" title="Edit"><span class="fa fa-edit"></span></a></td>
-                                            <td></td>
-                                        @else
-                                            <td></td>
-                                            <td></td>
-                                        @endif
-                                    @endif
+                                    <td><a class="btn btn-warning btn-xs btn-block" href="{!! URL::route('admin.account.getEdit', $item->uid) !!}" role="button" title="Edit"><span class="fa fa-edit"></span></a></td>
+                                    <td><a class="btn btn-danger btn-xs btn-block" href="{!! URL::route('admin.account.getDelete', $item->uid) !!}" role="button" title="Destroy"><span class="fa fa-remove"></span></a></td>
                                 </tr>
                             @endforeach
                         @endif

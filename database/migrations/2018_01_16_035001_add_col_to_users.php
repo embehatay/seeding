@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColToAccounts extends Migration
+class AddColToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColToAccounts extends Migration
      */
     public function up()
     {
-        Schema::table('account', function($table) {
-           $table->rememberToken();
+        Schema::table('user', function ($table) {
+            $table->enum('level', [0, 1, 2]);
         });
     }
 
@@ -25,6 +25,8 @@ class AddColToAccounts extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('user', function ($table) {
+             $table->dropColumn('level');
+        });
     }
 }

@@ -1,22 +1,22 @@
 @extends('admin/master')
 @section('title')
-    Account
+    User
 @stop
 @section('content-title')
-    Sửa Account
-    <a style="float: right" href="{{ route('admin.account.getIndex') }}" class="btn btn-primary">Danh sách Account</a>
+    Thêm User
+    <a style="float: right" href="{{ route('admin.user.index') }}" class="btn btn-primary">Danh sách Account</a>
 @stop
 @section('content')
     @include('admin/block/message')
     <section class="content">
 
-        <form method="post" action="{{ route('admin.account.postEdit', $account->uid) }}">
+        <form method="post" action="{{ route('admin.user.update', $user->id) }}">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">name</h3>
+                            <h3 class="box-title">Họ tên</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
@@ -26,7 +26,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group ">
-                                <input type="text" class="form-control" id="name" name="name" required="" value="{{ $account->name }}">
+                                <input type="text" class="form-control" id="name" name="name" required="" value="{{ $user->name }}">
 
                             </div>
 
@@ -46,7 +46,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group ">
-                                <input type="text" class="form-control" id="user" name="user" value="{!! $account->user !!}" required="">
+                                <input type="text" class="form-control" id="username" name="username" value="{!! $user->username !!}" required="">
 
                             </div>
 
@@ -65,24 +65,19 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <div class="form-group ">
-                                <input type="password" class="form-control" id="origin_pass" name="pass" value="" required="" placeholder="Nhập mật khẩu để xác nhận thay đổi">
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="origin_pass" name="password" value="" required="" placeholder="Nhập mật khẩu để xác nhận thay đổi">
 
                             </div>
 
-                        </div>
-
-                        <div class="box-body">
-                            <div class="form-group ">
-                                <input type="hidden" class="form-control" id="follow_pass" name="pass_confirmation" required="">
-                            </div>
                         </div>
                         <!-- /.box-body -->
                     </div>
+                    <input type="hidden" class="form-control" id="follow_pass" name="password_confirmation" value="" required="">
 
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">phone</h3>
+                            <h3 class="box-title">Level</h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
@@ -92,30 +87,11 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group ">
-                                <input type="text" class="form-control" id="phone" name="phone" value="{{ $account->phone }}">
-
+                                <select name="level" class="form-control">
+                                    <option value="0" @php echo ($user->level == 0) ? 'selected' : '' @endphp>User</option>
+                                    <option value="1" @php echo ($user->level == 1) ? 'selected' : '' @endphp>Admin</option>
+                                </select>
                             </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">info</h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="form-group ">
-                                <input type="text" class="form-control" id="info" name="info" value="{!! $account->info !!}">
-
-                            </div>
-
                         </div>
                         <!-- /.box-body -->
                     </div>

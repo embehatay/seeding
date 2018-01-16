@@ -88,7 +88,7 @@ desired effect
                   <ul class="menu">
                     <li><!-- start notification -->
                       <a href="#">
-                        <i class="fa fa-users text-aqua"></i> {{ $countNotifications }} @lang('new') {{ trans_choice(__('comment|comments'), $countNotifications) }}
+                        <i class="fa fa-user text-aqua"></i> {{ $countNotifications }} @lang('new') {{ trans_choice(__('comment|comments'), $countNotifications) }}
                       </a>
                     </li>
                     <!-- end notification -->

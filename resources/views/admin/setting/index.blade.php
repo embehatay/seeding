@@ -6,6 +6,7 @@
     Danh sách Post
 @stop
 @section('content')
+@include('admin/block/message')
 <section class="content">
     <div class="row">
         <div class="col-md-12">

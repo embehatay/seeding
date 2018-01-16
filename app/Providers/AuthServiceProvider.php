@@ -26,23 +26,23 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('add-account', function($user) {
-            return $user->type == 2;
+            return $user->level == 2;
         });
 
         Gate::define('show-account', function($user) {
-            return $user->type == 2 || $user->type == 1;
+            return $user->level == 2 || $user->level == 1;
         });
 
         Gate::define('edit-account', function($user) {
-           return $user->type == 2;
+           return $user->level == 2 || $user->level == 1;
         });
 
         Gate::define('self-edit', function($user) {
-            return $user->type == 1 || $user->type == 2;
+            return $user->level == 1 || $user->level == 2;
         });
 
         Gate::define('delete-account', function($user) {
-           return $user->type == 2;
+           return $user->level == 2;
         });
     }
 }

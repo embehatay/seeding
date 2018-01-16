@@ -61,7 +61,7 @@
                         </tr>
                         </tfoot>
                         <tbody id="pannel">
-                            @include('back.users.table', compact('users'))
+                            @include('user', compact('user'))
                         </tbody>
                     </table>
                 </div>

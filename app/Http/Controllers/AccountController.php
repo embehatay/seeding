@@ -55,6 +55,7 @@ class AccountController extends Controller
         return view('admin.account.edit', compact('account'));
     }
 
+//    public function postEdit($id, AccountRequest $accountRequest)
     public function postEdit($id)
     {
         $account = Account::findOrFail($id);

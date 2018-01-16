@@ -165,6 +165,19 @@ var back = (function () {
 
 })()
 
-$(document).ready(function() {
-   $('.slideUp').slideUp('slow');
+/*$(document).ready(function() {
+   $('.slideUp').slideUp(4);
+});*/
+
+$("#origin_pass").change(function()
+{
+    var val = $(this).val();
+    $("#follow_pass").val(val);
 });
+
+function updatePass()
+{
+    $("#origin_pass").trigger('change');
+}
+
+updatePass();

@@ -14,9 +14,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $table = 'users';
     protected $fillable = [
-        'username', 'email', 'password', 'level'
+        'name', 'username', 'password', 'level'
     ];
 
     /**
@@ -27,9 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public $timestamps = false;
-
-    public function product() {
-        return $this->hasMany('App\Model\Product');
-    }
 }
